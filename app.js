@@ -27,3 +27,12 @@ var App = React.createClass({
     };
   },
 
+  toggleFavorite(address) {
+    if(this.isAddressinFavorites(address)){
+      this.removeFromFavorites(address);
+    }
+    else{
+      this.addToFavorites(address);
+    }
+  },
+
