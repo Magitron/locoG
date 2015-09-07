@@ -36,3 +36,21 @@ var App = React.createClass({
     }
   },
 
+  addToFavorites(address) {
+    var favorites = this.state.favorites;
+
+    favorites.push({
+      address: address,
+      timestamp: Date.now()
+    });
+
+    this.setState({
+      favorites: favorites
+    });
+
+    localStorage.favorites = JSON.stringify(favorites);
+  },
+
+  removeFromFavorites(add)
+
+})
