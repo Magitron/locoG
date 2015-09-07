@@ -51,6 +51,43 @@ var App = React.createClass({
     localStorage.favorites = JSON.stringify(favorites);
   },
 
-  removeFromFavorites(add)
+  removeFromFavorites(address){
+    var favorites = this.state.favorites;
+    var index = -1;
+
+    for(var i = 0; i < favorites.length; i++) {
+      if(favorites[i].address == address) {
+        index = i;
+        break;
+      }
+    }
+
+    //IF IT WAS FOUND, REMOVE IT FROM THE FAVORITES ARRAY
+  }
+
+  if(index !== -1) {
+    favorites.splice(index, 1);
+
+    this.setState({
+      favorites: favorites
+    });
+
+    localStorage.favorites = JSON.stringify(favorites);
+  }
+},
+
+isAddressinFavorites(address) {
+  var favorites = this.state.favorites;
+
+  for(var i = 0; i < favorites.length; i++) {
+    if(favorites[i].address == address) {
+      return true;
+    }
+  }
+  return false;
+},
+
+
+
 
 })
